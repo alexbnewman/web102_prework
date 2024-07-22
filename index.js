@@ -73,14 +73,16 @@ contributionsCard.innerHTML = `Backers: ${ totalContributions.toLocaleString() }
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 totalContributions = GAMES_JSON.reduce( (acc, game) => {
-    return acc + game.backers;
+    return acc + game.pledged;
   }, 0);
 
 // set inner HTML using template literal
-
+raisedCard.innerHTML = `Total Raised: ${ totalContributions.toLocaleString() }`;
 
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
+numGames = GAMES_JSON.length;
+gamesCard.innerHTML = `Number of Games: ${ numGames }`;
 
 
 /*************************************************************************************
