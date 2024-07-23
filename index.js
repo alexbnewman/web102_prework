@@ -41,7 +41,8 @@ function addGamesToPage(games) {
         // about each game
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
-        gameCard.innerHTML = `The game ${ game.name } has ${ game.backers} backers. 
+        gameCard.innerHTML = `The game ${ game.name } has ${ game.backers} backers. <br><br> 
+                              ${ game.description } <br><br> 
                               <img src="${ game.img }" class="game-img" />`;
 
         // append the game to the games-container
@@ -70,7 +71,7 @@ const totalContributions = GAMES_JSON.reduce( (acc, game) => {
   }, 0);
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-contributionsCard.innerHTML = `Backers: ${ totalContributions.toLocaleString() }`;
+contributionsCard.innerHTML = `${ totalContributions.toLocaleString() }`;
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
@@ -84,7 +85,7 @@ raisedCard.innerHTML = `$${ totalRaised.toLocaleString() }`;
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
 const numGames = GAMES_JSON.length;
-gamesCard.innerHTML = `Total: ${ numGames }`;
+gamesCard.innerHTML = `${ numGames }`;
 
 
 /*************************************************************************************
@@ -176,7 +177,12 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
-
+let [topGame, runnerUp, ...others] = sortedGames;
 // create a new element to hold the name of the top pledge game, then append it to the correct element
-
+const topGameElt = document.createElement("p");
+topGameElt.innerHTML = `${ topGame.name }`;
+firstGameContainer.appendChild(topGameElt);
 // do the same for the runner up item
+const runnerUpElt = document.createElement("p");
+runnerUpElt.innerHTML = `${ runnerUp.name }`;
+secondGameContainer.appendChild(runnerUpElt);
