@@ -19,6 +19,22 @@ body {
     margin-top: -10px;
 }
 
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #464d55;
+    padding: 10px;
+}
+
+nav a:hover {
+    color: #FFFFFF;
+    background-color: #464d55;
+    border-radius: 5px;
+}
+
 .stats-container {
     display: flex;
     align-items: center;
@@ -68,6 +84,13 @@ body {
     box-shadow: 0 0 30px lightblue;
 }
 
+#search-bar {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 #button-container {
     text-align: center;
 }
@@ -78,4 +101,8 @@ button {
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+}
+
+button:hover {
+    cursor: pointer;
 }

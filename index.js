@@ -186,3 +186,17 @@ firstGameContainer.appendChild(topGameElt);
 const runnerUpElt = document.createElement("p");
 runnerUpElt.innerHTML = `${ runnerUp.name }`;
 secondGameContainer.appendChild(runnerUpElt);
+
+/************************************************************************************
+ * * Add a searchbar to filter games by name   
+ */
+
+document.getElementById("search-btn").addEventListener("click", function() {
+    const query = document.getElementById("search-bar").value;
+
+    let filteredGames = GAMES_JSON.filter((game) => {
+        return game.name.toLowerCase().includes(query.toLowerCase());
+    });
+    deleteChildElements(gamesContainer);
+    addGamesToPage(filteredGames);
+});
