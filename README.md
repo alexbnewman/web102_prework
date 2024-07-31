@@ -35,7 +35,7 @@ GIF created with LICEcap
 
 ## Notes
 
-No specific challenges were faced while building this application.
+No significant challenges beyond the scope of normal implementation were encountered while building this application.
 
 ## License
 
